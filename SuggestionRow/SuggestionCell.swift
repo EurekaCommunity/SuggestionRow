@@ -10,9 +10,9 @@ import UIKit
 import Eureka
 
 /// General suggestion cell. Create a subclass or use SuggestionCollectionCell or SuggestionTableCell.
-public class SuggestionCell: _FieldCell<String>, CellType {
+public class SuggestionCell<T: SuggestionValue>: _FieldCell<T>, CellType {
     let cellReuseIdentifier = "Eureka.SuggestionCellIdentifier"
-    var suggestions: [String]?
+    var suggestions: [T]?
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -30,13 +30,17 @@ public class SuggestionCell: _FieldCell<String>, CellType {
         formViewController()?.textInputDidBeginEditing(textField, cell: self)
         textField.selectAll(nil)
         
-        (row as? SuggestionRowProtocol)?.setSuggestions(textField.text!)
+        if let text = textField.text {
+            setSuggestions(text)
+        }
     }
     
     public override func textFieldDidChange(textField: UITextField) {
         super.textFieldDidChange(textField)
-        
-        (row as? SuggestionRowProtocol)?.setSuggestions(textField.text!)
+        if let text = textField.text {
+            setSuggestions(text)
+        }
+
     }
     
     public override func textFieldDidEndEditing(textField: UITextField) {
@@ -44,6 +48,8 @@ public class SuggestionCell: _FieldCell<String>, CellType {
         formViewController()?.textInputDidEndEditing(textField, cell: self)
         textField.text = row.displayValueFor?(row.value)
     }
+
+    func setSuggestions(string: String) {}
     
     func reload() {}
 }
