@@ -10,7 +10,7 @@ import UIKit
 
 let accessoryViewHeight = CGFloat(40)
 
-public class SuggestionCollectionCell<CollectionViewCell: UICollectionViewCell where CollectionViewCell: EurekaSuggestionCollectionViewCell>: SuggestionCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+public class SuggestionCollectionCell<T: SuggestionValue, CollectionViewCell: UICollectionViewCell where CollectionViewCell: EurekaSuggestionCollectionViewCell, CollectionViewCell.S == T>: SuggestionCell<T>, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     /// callback that can be used to customize the appearance of the UICollectionViewCell in the inputAccessoryView
     public var customizeCollectionViewCell: (CollectionViewCell -> Void)?
@@ -52,6 +52,11 @@ public class SuggestionCollectionCell<CollectionViewCell: UICollectionViewCell w
     override func reload() {
         collectionView?.reloadData()
     }
+
+    override func setSuggestions(string: String) {
+        suggestions = (row as? _SuggestionRow<T, SuggestionCollectionCell>)?.filterFunction(string)
+        reload()
+    }
     
     //MARK: UICollectionViewDelegate and Datasource
     public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -61,7 +66,7 @@ public class SuggestionCollectionCell<CollectionViewCell: UICollectionViewCell w
     public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuseIdentifier, forIndexPath: indexPath) as! CollectionViewCell
         if let suggestion = suggestions?[indexPath.row] {
-            cell.setText(suggestion)
+            cell.setupForValue(suggestion)
         }
         customizeCollectionViewCell?(cell)
         return cell
@@ -70,14 +75,14 @@ public class SuggestionCollectionCell<CollectionViewCell: UICollectionViewCell w
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if let suggestion = suggestions?[indexPath.row] {
             row.value = suggestion
-            row.updateCell()
+            cellResignFirstResponder()
         }
     }
     
     public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let cell = CollectionViewCell(frame: CGRectZero)
         if let suggestion = suggestions?[indexPath.row] {
-            cell.setText(suggestion)
+            cell.setupForValue(suggestion)
         }
         return cell.sizeThatFits()
     }

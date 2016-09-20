@@ -10,13 +10,18 @@ import Eureka
 
 
 public protocol EurekaSuggestionCollectionViewCell {
-    func setText(prediction: String)
+    associatedtype S: SuggestionValue
+
+    func setupForValue(value: S)
     func sizeThatFits() -> CGSize
 }
 
 /// Default cell for the inputAccessoryView of the SuggestionRow
-public class SuggestionCollectionViewCell: UICollectionViewCell, EurekaSuggestionCollectionViewCell {
+public class SuggestionCollectionViewCell<T: SuggestionValue>: UICollectionViewCell, EurekaSuggestionCollectionViewCell {
+    public typealias S = T
+
     public var label = UILabel()
+
     override public init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -44,8 +49,8 @@ public class SuggestionCollectionViewCell: UICollectionViewCell, EurekaSuggestio
         contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[label]|", options: [], metrics: nil, views: ["label": label]))
     }
     
-    public func setText(prediction: String) {
-        label.text = "  \(prediction)"
+    public func setupForValue(value: T) {
+        label.text = "  \(value.suggestionString)"
     }
     
     public func sizeThatFits() -> CGSize {
