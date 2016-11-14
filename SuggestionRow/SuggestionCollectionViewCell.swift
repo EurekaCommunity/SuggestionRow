@@ -12,12 +12,12 @@ import Eureka
 public protocol EurekaSuggestionCollectionViewCell {
     associatedtype S: SuggestionValue
 
-    func setupForValue(value: S)
+    func setupForValue(_ value: S)
     func sizeThatFits() -> CGSize
 }
 
 /// Default cell for the inputAccessoryView of the SuggestionRow
-public class SuggestionCollectionViewCell<T: SuggestionValue>: UICollectionViewCell, EurekaSuggestionCollectionViewCell {
+open class SuggestionCollectionViewCell<T: SuggestionValue>: UICollectionViewCell, EurekaSuggestionCollectionViewCell {
     public typealias S = T
 
     public var label = UILabel()
@@ -33,29 +33,29 @@ public class SuggestionCollectionViewCell<T: SuggestionValue>: UICollectionViewC
     }
     
     func initialize() {
-        label.font = UIFont.systemFontOfSize(15)
+        label.font = .systemFont(ofSize: 15)
         label.numberOfLines = 1
         label.minimumScaleFactor = 0
         label.adjustsFontSizeToFitWidth = true
-        label.textColor = UIColor.whiteColor()
-        label.backgroundColor = UIColor.blueColor()
+        label.textColor = .white
+        label.backgroundColor = .blue
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
         
         contentView.addSubview(label)
-        contentView.backgroundColor = UIColor.whiteColor()
+        contentView.backgroundColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[label]|", options: [], metrics: nil, views: ["label": label]))
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[label]|", options: [], metrics: nil, views: ["label": label]))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[label]|", options: [], metrics: nil, views: ["label": label]))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[label]|", options: [], metrics: nil, views: ["label": label]))
     }
     
-    public func setupForValue(value: T) {
+    open func setupForValue(_ value: T) {
         label.text = "  \(value.suggestionString)"
     }
     
-    public func sizeThatFits() -> CGSize {
-        label.frame = CGRectMake(0, 0, 180, 30)
+    open func sizeThatFits() -> CGSize {
+        label.frame = CGRect(x: 0, y: 0, width: 180, height: 30)
         label.sizeToFit()
-        return CGSizeMake(label.frame.width + 8, 30)
+        return CGSize(width: label.frame.width + 8, height: 30)
     }
 }

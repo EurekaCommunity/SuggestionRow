@@ -1,3 +1,6 @@
+<img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift3-compatible-4BC51D.svg?style=flat" alt="Swift 3 compatible" /></a>
+
 ## Contents
 * [Introduction](#introduction)
 * [Usage](#usage)
@@ -96,7 +99,8 @@ In your form, add a row of type `SuggestionAccessoryRow<Scientist>` or `Suggesti
 
 ## Requirements
 * iOS 8.0+
-* Xcode 7.3+
+* Xcode 8+
+* Swift 3
 
 ## Getting involved
 * If you **want to contribute** please feel free to **submit pull requests**.

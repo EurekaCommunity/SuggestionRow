@@ -10,26 +10,26 @@ import UIKit
 
 let accessoryViewHeight = CGFloat(40)
 
-public class SuggestionCollectionCell<T: SuggestionValue, CollectionViewCell: UICollectionViewCell where CollectionViewCell: EurekaSuggestionCollectionViewCell, CollectionViewCell.S == T>: SuggestionCell<T>, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+open class SuggestionCollectionCell<T: SuggestionValue, CollectionViewCell: UICollectionViewCell>: SuggestionCell<T>, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout where CollectionViewCell: EurekaSuggestionCollectionViewCell, CollectionViewCell.S == T {
     
     /// callback that can be used to customize the appearance of the UICollectionViewCell in the inputAccessoryView
-    public var customizeCollectionViewCell: (CollectionViewCell -> Void)?
+    public var customizeCollectionViewCell: ((CollectionViewCell) -> Void)?
     
     /// UICollectionView that acts as inputAccessoryView.
     public lazy var collectionView: UICollectionView? = {
-        let collectionView = UICollectionView(frame: CGRectMake(0, 0, self.contentView.frame.width, accessoryViewHeight), collectionViewLayout: self.collectionViewLayout)
-        collectionView.autoresizingMask = .FlexibleWidth
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.contentView.frame.width, height: accessoryViewHeight), collectionViewLayout: self.collectionViewLayout)
+        collectionView.autoresizingMask = .flexibleWidth
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor.whiteColor()
-        collectionView.registerClass(CollectionViewCell.self, forCellWithReuseIdentifier: self.cellReuseIdentifier)
+        collectionView.backgroundColor = .white
+        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: self.cellReuseIdentifier)
         return collectionView
     }()
     
     public var collectionViewLayout: UICollectionViewLayout = {
         var layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .Horizontal
+        layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 5
         layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5)
@@ -40,11 +40,15 @@ public class SuggestionCollectionCell<T: SuggestionValue, CollectionViewCell: UI
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    public override var inputAccessoryView: UIView? {
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    open override var inputAccessoryView: UIView? {
         return collectionView
     }
     
-    public override func setup() {
+    open override func setup() {
         super.setup()
         
     }
@@ -53,41 +57,41 @@ public class SuggestionCollectionCell<T: SuggestionValue, CollectionViewCell: UI
         collectionView?.reloadData()
     }
 
-    override func setSuggestions(string: String) {
-        suggestions = (row as? _SuggestionRow<T, SuggestionCollectionCell>)?.filterFunction(string)
+    override func setSuggestions(_ string: String) {
+        suggestions = (row as? _SuggestionRow<SuggestionCollectionCell>)?.filterFunction(string)
         reload()
     }
     
     //MARK: UICollectionViewDelegate and Datasource
-    public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return suggestions?.count ?? 0
     }
     
-    public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuseIdentifier, forIndexPath: indexPath) as! CollectionViewCell
-        if let suggestion = suggestions?[indexPath.row] {
+    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! CollectionViewCell
+        if let suggestion = suggestions?[(indexPath as NSIndexPath).row] {
             cell.setupForValue(suggestion)
         }
         customizeCollectionViewCell?(cell)
         return cell
     }
     
-    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if let suggestion = suggestions?[indexPath.row] {
+    open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let suggestion = suggestions?[(indexPath as NSIndexPath).row] {
             row.value = suggestion
-            cellResignFirstResponder()
+            _ = cellResignFirstResponder()
         }
     }
     
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let cell = CollectionViewCell(frame: CGRectZero)
-        if let suggestion = suggestions?[indexPath.row] {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cell = CollectionViewCell(frame: CGRect.zero)
+        if let suggestion = suggestions?[(indexPath as NSIndexPath).row] {
             cell.setupForValue(suggestion)
         }
         return cell.sizeThatFits()
     }
     
-    public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    open func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 }

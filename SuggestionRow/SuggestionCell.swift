@@ -10,7 +10,7 @@ import UIKit
 import Eureka
 
 /// General suggestion cell. Create a subclass or use SuggestionCollectionCell or SuggestionTableCell.
-public class SuggestionCell<T: SuggestionValue>: _FieldCell<T>, CellType {
+open class SuggestionCell<T: SuggestionValue>: _FieldCell<T>, CellType {
     let cellReuseIdentifier = "Eureka.SuggestionCellIdentifier"
     var suggestions: [T]?
     
@@ -18,15 +18,19 @@ public class SuggestionCell<T: SuggestionValue>: _FieldCell<T>, CellType {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    override public func setup() {
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    override open func setup() {
         super.setup()
-        textField.autocorrectionType = .No
-        textField.autocapitalizationType = .Sentences
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .sentences
     }
     
     //MARK: UITextFieldDelegate
-    public override func textFieldDidBeginEditing(textField: UITextField) {
-        formViewController()?.beginEditing(self)
+    open override func textFieldDidBeginEditing(_ textField: UITextField) {
+        formViewController()?.beginEditing(of: self)
         formViewController()?.textInputDidBeginEditing(textField, cell: self)
         textField.selectAll(nil)
         
@@ -35,7 +39,7 @@ public class SuggestionCell<T: SuggestionValue>: _FieldCell<T>, CellType {
         }
     }
     
-    public override func textFieldDidChange(textField: UITextField) {
+    open override func textFieldDidChange(_ textField: UITextField) {
         super.textFieldDidChange(textField)
         if let text = textField.text {
             setSuggestions(text)
@@ -43,13 +47,13 @@ public class SuggestionCell<T: SuggestionValue>: _FieldCell<T>, CellType {
 
     }
     
-    public override func textFieldDidEndEditing(textField: UITextField) {
-        formViewController()?.endEditing(self)
+    open override func textFieldDidEndEditing(_ textField: UITextField) {
+        formViewController()?.endEditing(of: self)
         formViewController()?.textInputDidEndEditing(textField, cell: self)
         textField.text = row.displayValueFor?(row.value)
     }
 
-    func setSuggestions(string: String) {}
+    func setSuggestions(_ string: String) {}
     
     func reload() {}
 }

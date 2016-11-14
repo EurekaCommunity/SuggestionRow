@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-public class SuggestionTableCell<T: SuggestionValue, TableViewCell: UITableViewCell where TableViewCell: EurekaSuggestionTableViewCell, TableViewCell.S == T>: SuggestionCell<T>, UITableViewDelegate, UITableViewDataSource {
+open class SuggestionTableCell<T: SuggestionValue, TableViewCell: UITableViewCell>: SuggestionCell<T>, UITableViewDelegate, UITableViewDataSource where TableViewCell: EurekaSuggestionTableViewCell, TableViewCell.S == T {
     
     /// callback that can be used to customize the table cell.
-    public var customizeTableViewCell: (TableViewCell -> Void)?
+    public var customizeTableViewCell: ((TableViewCell) -> Void)?
     
     public var tableView: UITableView?
 
@@ -19,75 +19,79 @@ public class SuggestionTableCell<T: SuggestionValue, TableViewCell: UITableViewC
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    public override func setup() {
-        super.setup()
-        tableView = UITableView(frame: CGRectZero, style: .Plain)
-        tableView?.autoresizingMask = .FlexibleHeight
-        tableView?.hidden = true
-        tableView?.delegate = self
-        tableView?.dataSource = self
-        tableView?.backgroundColor = UIColor.whiteColor()
-        tableView?.registerClass(TableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
-    public func showTableView() {
+    open override func setup() {
+        super.setup()
+        tableView = UITableView(frame: CGRect.zero, style: .plain)
+        tableView?.autoresizingMask = .flexibleHeight
+        tableView?.isHidden = true
+        tableView?.delegate = self
+        tableView?.dataSource = self
+        tableView?.backgroundColor = UIColor.white
+        tableView?.register(TableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+    }
+    
+    open func showTableView() {
         if let controller = formViewController() {
             if tableView?.superview == nil {
                 controller.view.addSubview(tableView!)
             }
-            let frame = controller.tableView?.convertRect(self.frame, toView: controller.view) ?? self.frame
-            tableView?.frame = CGRectMake(0, frame.origin.y + frame.height, contentView.frame.width, 44*5)
-            tableView?.hidden = false
+            let frame = controller.tableView?.convert(self.frame, to: controller.view) ?? self.frame
+            tableView?.frame = CGRect(x: 0, y: frame.origin.y + frame.height, width: contentView.frame.width, height: 44*5)
+            tableView?.isHidden = false
         }
     }
     
-    public func hideTableView() {
-        tableView?.hidden = true
+    open func hideTableView() {
+        tableView?.isHidden = true
     }
     
     override func reload() {
         tableView?.reloadData()
     }
 
-    override func setSuggestions(string: String) {
-        suggestions = (row as? _SuggestionRow<T, SuggestionTableCell>)?.filterFunction(string)
+    override func setSuggestions(_ string: String) {
+        suggestions = (row as? _SuggestionRow<SuggestionTableCell>)?.filterFunction(string)
         reload()
     }
     
-    public override func textFieldDidChange(textField: UITextField) {
+    open override func textFieldDidChange(_ textField: UITextField) {
         super.textFieldDidChange(textField)
         if textField.text?.isEmpty == false {
             showTableView()
         }
     }
-    
-    public override func unhighlight() {
-        super.unhighlight()
+
+    open override func textFieldDidEndEditing(_ textField: UITextField) {
+        super.textFieldDidEndEditing(textField)
         hideTableView()
     }
     
     //MARK: UITableViewDelegate and Datasource
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return suggestions?.count ?? 0
     }
     
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as! TableViewCell
-        if let prediction = suggestions?[indexPath.row] {
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! TableViewCell
+        if let prediction = suggestions?[(indexPath as NSIndexPath).row] {
             cell.setupForValue(prediction)
         }
         customizeTableViewCell?(cell)
         return cell
     }
     
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let prediction = suggestions?[indexPath.row] {
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let prediction = suggestions?[(indexPath as NSIndexPath).row] {
             row.value = prediction
-            cellResignFirstResponder()
+            _ = cellResignFirstResponder()
         }
     }
     
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    open func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 }
