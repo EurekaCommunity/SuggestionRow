@@ -11,11 +11,11 @@ import Eureka
 public protocol EurekaSuggestionTableViewCell {
     associatedtype S: SuggestionValue
 
-    func setupForValue(value: S)
+    func setupForValue(_ value: S)
 }
 
 /// Default cell for the table of the SuggestionTableCell
-public class SuggestionTableViewCell<T: SuggestionValue>: UITableViewCell, EurekaSuggestionTableViewCell {
+open class SuggestionTableViewCell<T: SuggestionValue>: UITableViewCell, EurekaSuggestionTableViewCell {
     public typealias S = T
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,14 +28,14 @@ public class SuggestionTableViewCell<T: SuggestionValue>: UITableViewCell, Eurek
     }
     
     func initialize() {
-        textLabel?.font = UIFont.systemFontOfSize(16)
+        textLabel?.font = .systemFont(ofSize: 16)
         textLabel?.minimumScaleFactor = 0.8
         textLabel?.adjustsFontSizeToFitWidth = true
-        textLabel?.textColor = UIColor.blueColor()
-        contentView.backgroundColor = UIColor.whiteColor()
+        textLabel?.textColor = .blue
+        contentView.backgroundColor = .white
     }
     
-    public func setupForValue(value: T) {
+    open func setupForValue(_ value: T) {
         textLabel?.text = value.suggestionString
     }
 }

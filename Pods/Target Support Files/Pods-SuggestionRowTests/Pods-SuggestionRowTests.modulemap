@@ -1,6 +1,0 @@
-framework module Pods_SuggestionRowTests {
-  umbrella header "Pods-SuggestionRowTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

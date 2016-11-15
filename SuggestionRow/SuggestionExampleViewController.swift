@@ -30,7 +30,7 @@ class SuggestionExampleViewController: FormViewController {
         +++ Section("Table suggestions")
             <<< SuggestionTableRow<Scientist>() {
                 $0.filterFunction = { text in
-                    users.filter({ $0.firstName.lowercaseString.containsString(text.lowercaseString) })
+                    users.filter({ $0.firstName.lowercased().contains(text.lowercased()) })
                 }
                 $0.placeholder = "Search for a famous scientist"
             }
