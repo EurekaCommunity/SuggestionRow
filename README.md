@@ -99,7 +99,7 @@ In your form, add a row of type `SuggestionAccessoryRow<Scientist>` or `Suggesti
 
 ## Requirements
 * iOS 8.0+
-* Xcode 8+
+* Xcode 8.3+
 * Swift 3
 
 ## Getting involved
