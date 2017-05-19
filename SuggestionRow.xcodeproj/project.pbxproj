@@ -119,7 +119,8 @@
 		AA81DD391D64F706002F17F9 = {
 			isa = PBXGroup;
 			children = (
-				AA81DD441D64F706002F17F9 /* SuggestionRow */,
+				AA81DD731D64F801002F17F9 /* SuggestionRow */,
+				AA81DD441D64F706002F17F9 /* Example */,
 				AA81DD591D64F707002F17F9 /* SuggestionRowTests */,
 				AA81DD641D64F707002F17F9 /* SuggestionRowUITests */,
 				AA81DD431D64F706002F17F9 /* Products */,
@@ -138,18 +139,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AA81DD441D64F706002F17F9 /* SuggestionRow */ = {
+		AA81DD441D64F706002F17F9 /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				AA81DD451D64F706002F17F9 /* AppDelegate.swift */,
 				AA81DD471D64F707002F17F9 /* SuggestionExampleViewController.swift */,
-				AA81DD731D64F801002F17F9 /* SuggestionRow */,
 				AA81DD491D64F707002F17F9 /* Main.storyboard */,
 				AA81DD4C1D64F707002F17F9 /* Assets.xcassets */,
 				AA81DD4E1D64F707002F17F9 /* LaunchScreen.storyboard */,
 				AA81DD511D64F707002F17F9 /* Info.plist */,
 			);
-			path = SuggestionRow;
+			path = Example;
 			sourceTree = "<group>";
 		};
 		AA81DD591D64F707002F17F9 /* SuggestionRowTests */ = {
@@ -182,6 +182,7 @@
 				8FA74BC81D831E2100571A0C /* String+SuggestionValue.swift */,
 			);
 			name = SuggestionRow;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		B49C487EB6DD1EF9AA014DDC /* Frameworks */ = {
@@ -271,6 +272,7 @@
 				TargetAttributes = {
 					AA81DD411D64F706002F17F9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6F2G55XL63;
 						LastSwiftMigration = 0800;
 					};
 					AA81DD551D64F707002F17F9 = {
@@ -360,7 +362,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		4CDE81A143A142D52FC074F6 /* [CP] Copy Pods Resources */ = {
@@ -390,7 +392,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9BAFAEE36ED07189A5DF8E7C /* [CP] Embed Pods Frameworks */ = {
@@ -435,7 +437,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E857824996F04E4B4EA1D2BE /* [CP] Copy Pods Resources */ = {
@@ -633,7 +635,8 @@
 			baseConfigurationReference = A5F8E139F8EF16B60D1F1F4C /* Pods-SuggestionRow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SuggestionRow/Info.plist;
+				DEVELOPMENT_TEAM = 6F2G55XL63;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Helene-Martin.SuggestionRow";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -646,7 +649,8 @@
 			baseConfigurationReference = 68D0D0DDD51BB31798E20BFD /* Pods-SuggestionRow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SuggestionRow/Info.plist;
+				DEVELOPMENT_TEAM = 6F2G55XL63;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Helene-Martin.SuggestionRow";
 				PRODUCT_NAME = "$(TARGET_NAME)";
