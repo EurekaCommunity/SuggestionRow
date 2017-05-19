@@ -1,5 +1,8 @@
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
 <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift3-compatible-4BC51D.svg?style=flat" alt="Swift 3 compatible" /></a>
+<a href="https://cocoapods.org/pods/SuggestionRow"><img src="https://img.shields.io/cocoapods/v/SuggestionRow.svg" alt="CocoaPods compatible" /></a>
+<a href="https://raw.githubusercontent.com/EurekaCommunity/SuggestionRow/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License: MIT" /></a>
+</p>
 
 ## Contents
 * [Introduction](#introduction)
@@ -66,8 +69,8 @@ In your form, add a row of type `SuggestionAccessoryRow<Scientist>` or `Suggesti
     ...                          
     form +++ Section("Table suggestions")
         <<< SuggestionTableRow<Scientist>() {
-            $0.filterFunction = { text in
-                users.filter({ $0.firstName.lowercaseString.containsString(text.lowercaseString) })
+            $0.filterFunction = { [unowned self] text in
+                self.users.filter({ $0.firstName.lowercased().contains(text.lowercased()) })
             }
             $0.placeholder = "Search for a famous scientist"
         }
