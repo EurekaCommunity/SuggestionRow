@@ -16,6 +16,7 @@ public protocol SuggestionValue: Equatable, InputTypeInitiable {
 open class _SuggestionRow<Cell: CellType>: FieldRow<Cell> where Cell: BaseCell, Cell: TextFieldCell, Cell.Value: SuggestionValue {
 //SuggestionCell<T>
     public var filterFunction: ((String) -> [Cell.Value])!
+    public var asyncFilterFunction: ((String, (@escaping ([Cell.Value]) -> Void)) -> Void)?
 
     required public init(tag: String?) {
         super.init(tag: tag)
