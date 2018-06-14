@@ -6,6 +6,7 @@
 
 ## Contents
 * [Introduction](#introduction)
+* [Installation](#installation)
 * [Usage](#usage)
 * [Customization](#customization)
 * [Dependencies](#dependencies)
@@ -24,6 +25,20 @@ Both classes are generic and can be used to provide completion suggestions for a
     }
 
 `SuggestionRow` is based off of [`GooglePlacesRow`](https://github.com/EurekaCommunity/GooglePlacesRow)
+
+## Installation
+
+#### CocoaPods
+
+[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects.
+
+Add `SuggestionRow` to your project's `Podfile`:
+
+```ruby
+pod 'SuggestionRow'
+```
+
+Then run `pod install`.
 
 ## Usage
 ### Conform to `SuggestionValue` protocol
