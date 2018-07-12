@@ -58,8 +58,16 @@ open class SuggestionCollectionCell<T: SuggestionValue, CollectionViewCell: UICo
     }
 
     override func setSuggestions(_ string: String) {
-        suggestions = (row as? _SuggestionRow<SuggestionCollectionCell>)?.filterFunction(string)
-        reload()
+        if let filterFunction = (row as? _SuggestionRow<SuggestionCollectionCell>)?.filterFunction {
+            suggestions = filterFunction(string)
+            reload()
+        }
+        if let asyncFilterFunction = (row as? _SuggestionRow<SuggestionCollectionCell>)?.asyncFilterFunction {
+            asyncFilterFunction(string, { (values) in
+                self.suggestions = values
+                self.reload()
+            })
+        }
     }
     
     //MARK: UICollectionViewDelegate and Datasource

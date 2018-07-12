@@ -54,8 +54,16 @@ open class SuggestionTableCell<T: SuggestionValue, TableViewCell: UITableViewCel
     }
 
     override func setSuggestions(_ string: String) {
-        suggestions = (row as? _SuggestionRow<SuggestionTableCell>)?.filterFunction(string)
-        reload()
+        if let filterFunction = (row as? _SuggestionRow<SuggestionTableCell>)?.filterFunction {
+            suggestions = filterFunction(string)
+            reload()
+        }
+        if let asyncFilterFunction = (row as? _SuggestionRow<SuggestionTableCell>)?.asyncFilterFunction {
+            asyncFilterFunction(string, { (values) in
+                self.suggestions = values
+                self.reload()
+            })
+        }
     }
     
     open override func textFieldDidChange(_ textField: UITextField) {
