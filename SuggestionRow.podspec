@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SuggestionRow"
-  s.version          = "2.0.0"
+  s.version          = "2.1.0"
   s.summary          = "Eureka row that displays completion suggestions either below the row in a table view or in the input accessory view above the keyboard."
   s.homepage         = "https://github.com/EurekaCommunity/SuggestionRow"
   s.license          = { type: 'MIT', file: 'LICENSE' }
