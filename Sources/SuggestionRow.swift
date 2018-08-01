@@ -17,6 +17,7 @@ open class _SuggestionRow<Cell: CellType>: FieldRow<Cell> where Cell: BaseCell, 
 //SuggestionCell<T>
     public var filterFunction: ((String) -> [Cell.Value])!
     public var asyncFilterFunction: ((String, (@escaping ([Cell.Value]) -> Void)) -> Void)?
+    public var maxSuggestionHeight: CGFloat? // How many row results to show at a time in the view
 
     required public init(tag: String?) {
         super.init(tag: tag)
