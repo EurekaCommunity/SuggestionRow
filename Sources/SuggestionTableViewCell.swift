@@ -31,7 +31,7 @@ open class SuggestionTableViewCell<T: SuggestionValue>: UITableViewCell, EurekaS
         textLabel?.font = .systemFont(ofSize: 16)
         textLabel?.minimumScaleFactor = 0.8
         textLabel?.adjustsFontSizeToFitWidth = true
-        textLabel?.textColor = .blue
+        textLabel?.textColor = .black
         contentView.backgroundColor = .white
     }
     

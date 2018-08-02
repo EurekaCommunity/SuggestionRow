@@ -26,6 +26,7 @@ open class SuggestionTableCell<T: SuggestionValue, TableViewCell: UITableViewCel
     open override func setup() {
         super.setup()
         tableView = UITableView(frame: CGRect.zero, style: .plain)
+        tableView?.tableFooterView = UIView(frame: CGRect.zero)
         tableView?.autoresizingMask = .flexibleHeight
         tableView?.isHidden = true
         tableView?.delegate = self
@@ -40,7 +41,8 @@ open class SuggestionTableCell<T: SuggestionValue, TableViewCell: UITableViewCel
                 controller.view.addSubview(tableView!)
             }
             let frame = controller.tableView?.convert(self.frame, to: controller.view) ?? self.frame
-            tableView?.frame = CGRect(x: 0, y: frame.origin.y + frame.height, width: contentView.frame.width, height: 44*5)
+            let maxSuggestionRowHeight = (row as? _SuggestionRow<SuggestionTableCell>)?.maxSuggestionRows ?? 5
+            tableView?.frame = CGRect(x: 0, y: frame.origin.y + frame.height, width: contentView.frame.width, height: 44 * CGFloat(maxSuggestionRowHeight))
             tableView?.isHidden = false
         }
     }
