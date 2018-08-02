@@ -41,8 +41,8 @@ open class SuggestionTableCell<T: SuggestionValue, TableViewCell: UITableViewCel
                 controller.view.addSubview(tableView!)
             }
             let frame = controller.tableView?.convert(self.frame, to: controller.view) ?? self.frame
-            let maxSuggestionHeight = (row as? _SuggestionRow<SuggestionTableCell>)?.maxSuggestionHeight ?? 5
-            tableView?.frame = CGRect(x: 0, y: frame.origin.y + frame.height, width: contentView.frame.width, height: 44 * CGFloat(maxSuggestionHeight))
+            let maxSuggestionRowHeight = (row as? _SuggestionRow<SuggestionTableCell>)?.maxSuggestionRowHeight ?? 5
+            tableView?.frame = CGRect(x: 0, y: frame.origin.y + frame.height, width: contentView.frame.width, height: 44 * CGFloat(maxSuggestionRowHeight))
             tableView?.isHidden = false
         }
     }
