@@ -10,7 +10,7 @@ import UIKit
 
 let accessoryViewHeight = CGFloat(40)
 
-open class SuggestionCollectionCell<T: SuggestionValue, CollectionViewCell: UICollectionViewCell>: SuggestionCell<T>, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout where CollectionViewCell: EurekaSuggestionCollectionViewCell, CollectionViewCell.S == T {
+open class SuggestionCollectionCell<T, CollectionViewCell: UICollectionViewCell>: SuggestionCell<T>, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout where CollectionViewCell: EurekaSuggestionCollectionViewCell, CollectionViewCell.S == T {
     
     /// callback that can be used to customize the appearance of the UICollectionViewCell in the inputAccessoryView
     public var customizeCollectionViewCell: ((CollectionViewCell) -> Void)?
@@ -32,11 +32,11 @@ open class SuggestionCollectionCell<T: SuggestionValue, CollectionViewCell: UICo
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 5
-        layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5)
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         return layout
     }()
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     

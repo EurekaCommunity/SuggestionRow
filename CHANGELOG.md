@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to SuggestionRow will be documented in this file.
 
+## [2.2.0](https://github.com/EurekaCommunity/SuggestionRow/releases/tag/2.2.0)
+
+* Support for Swift 4.2 and Xcode 10
+* Renamed `maxSuggestionHeight` to `maxSuggestionRows`
+
 ## [2.1.0](https://github.com/EurekaCommunity/SuggestionRow/releases/tag/2.1.0)
 
 * Support for Swift 4
