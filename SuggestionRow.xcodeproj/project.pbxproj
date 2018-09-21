@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		491BA285AFA32862390D7431 /* Pods_SuggestionRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E382FC4170AC6A8094CA8BB2 /* Pods_SuggestionRow.framework */; };
 		6A9D202F2BA6E4BFA39C5B05 /* Pods_SuggestionRowUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB6675C27F04324EC0932A6 /* Pods_SuggestionRowUITests.framework */; };
 		79E4A8291FD82BF50023D6B6 /* SuggestionRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 79E4A8271FD82BF50023D6B6 /* SuggestionRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79E4A8391FD82C320023D6B6 /* SuggestionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA81DD741D64F824002F17F9 /* SuggestionRow.swift */; };
@@ -17,6 +16,7 @@
 		79E4A83D1FD82C320023D6B6 /* SuggestionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA81DD7C1D64FB78002F17F9 /* SuggestionTableCell.swift */; };
 		79E4A83E1FD82C320023D6B6 /* SuggestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA81DD7D1D64FB78002F17F9 /* SuggestionTableViewCell.swift */; };
 		79E4A83F1FD82C320023D6B6 /* String+SuggestionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA74BC81D831E2100571A0C /* String+SuggestionValue.swift */; };
+		8F36D0B2215567AD00A0F5EC /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA9C14621554F8500912B14 /* Eureka.framework */; };
 		8FA74BC91D831E2100571A0C /* String+SuggestionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA74BC81D831E2100571A0C /* String+SuggestionValue.swift */; };
 		8FA9C14E2155614600912B14 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA9C14621554F8500912B14 /* Eureka.framework */; };
 		8FA9C14F2155614600912B14 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA9C14621554F8500912B14 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -108,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				491BA285AFA32862390D7431 /* Pods_SuggestionRow.framework in Frameworks */,
+				8F36D0B2215567AD00A0F5EC /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +339,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Helene Martin";
 				TargetAttributes = {
 					79E4A8241FD82BF50023D6B6 = {
@@ -572,7 +572,7 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -613,7 +613,7 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
