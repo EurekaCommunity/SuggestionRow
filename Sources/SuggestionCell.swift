@@ -14,7 +14,7 @@ open class SuggestionCell<T: SuggestionValue>: _FieldCell<T>, CellType {
     let cellReuseIdentifier = "Eureka.SuggestionCellIdentifier"
     var suggestions: [T]?
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     

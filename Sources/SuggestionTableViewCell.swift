@@ -17,7 +17,7 @@ public protocol EurekaSuggestionTableViewCell {
 /// Default cell for the table of the SuggestionTableCell
 open class SuggestionTableViewCell<T: SuggestionValue>: UITableViewCell, EurekaSuggestionTableViewCell {
     public typealias S = T
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         initialize()
     }
