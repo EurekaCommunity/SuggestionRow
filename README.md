@@ -99,6 +99,35 @@ To run the examples follow these steps:
 
 ## Customization
 
+### SuggestionTableRow<T>
+`SuggestionTableRow` uses a generic `SuggestionTableCell` cell whose generic parameter is the `UITableViewCell` class used to create the cells displayed in a `UITableView` with the suggested options.
+
+* If you want to make minor visual changes to the suggestion table row cells, use the `customizeTableViewCell` callback.
+
+* You can customize attributes of the `tableView` that displays the options. You should do this in `cellSetup` and keep in mind that the frame of the tableView is reset each time the tableView is displayed.
+
+* If you want to change these cells drastically, create your own row with your own cell class which conforms to `EurekaSuggestionTableViewCell`. For example like this:
+
+```swift
+final class MySuggestionTableRow<T: SuggestionValue>: _SuggestionRow<MySuggestionTableCell<T, SuggestionTableViewCell<T>>>, RowType {
+    required public init(tag: String?) {
+        super.init(tag: tag)
+    }
+}
+
+class MySuggestionTableCell<T, TableViewCell: UITableViewCell>: SuggestionTableCell<T, TableViewCell> where TableViewCell: EurekaSuggestionTableViewCell, TableViewCell.S == T {
+    // ...
+}
+
+open class MySuggestionTableViewCell<T: SuggestionValue>: SuggestionTableViewCell<T> {
+    // ...
+}
+```
+
+Here `MySuggestionTableCell` is the cell of the row itself and `MySuggestionTableViewCell` is the cell that is used to display the suggestions.
+
+Look at the source code of the default cells for inspiration.
+
 ### `SuggestionAccessoryRow<T>`
 `SuggestionAccessoryRow `uses a generic `SuggestionCollectionCell` cell whose generic parameter is the `UICollectionViewCell` class used in the `inputAccessoryView`.
 
@@ -108,16 +137,8 @@ To run the examples follow these steps:
 
 * If you want to change something about the **collectionView** (e.g. its height, backgroundColor) then you can also do that in the `cellSetup` method.
 
-* If you want to **change the collection view cell of the inputAccessoryView** drastically, create your own row (`MySuggestionAccessoryRow`) with your own cell class which conforms to `EurekaSuggestionCollectionViewCell`.
-
-### SuggestionTableRow<T>
-`SuggestionTableRow` uses a generic `SuggestionTableCell` cell whose generic parameter is the `UITableViewCell` class used to create the cells displayed in a `UITableView` with the suggested options.
-
-* If you want to make minor visual changes to the suggestion table row cells, use the `customizeTableViewCell` callback.
-
-* You can customize attributes of the `tableView` that displays the options. You should do this in `cellSetup` and keep in mind that the frame of the tableView is reset each time the tableView is displayed.
-
-* If you want to change these cells drastically, create your own row with your own cell class which conforms to `EurekaSuggestionTableViewCell`.
+* If you want to **change the collection view cell of the inputAccessoryView** drastically, create your own row (`MySuggestionAccessoryRow`) with your own cell class which conforms to `EurekaSuggestionCollectionViewCell`. 
+This is very similar to the example mentioned above for `SuggestionTableRow`.
 
 ## Dependencies
 * Eureka
