@@ -27,6 +27,7 @@ open class SuggestionTableCell<T, TableViewCell: UITableViewCell>: SuggestionCel
         super.setup()
         tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView?.tableFooterView = UIView(frame: CGRect.zero)
+        tableView?.separatorInset = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 0)
         tableView?.autoresizingMask = .flexibleHeight
         tableView?.isHidden = true
         tableView?.delegate = self
@@ -41,8 +42,10 @@ open class SuggestionTableCell<T, TableViewCell: UITableViewCell>: SuggestionCel
                 controller.view.addSubview(tableView!)
             }
             let frame = controller.tableView?.convert(self.frame, to: controller.view) ?? self.frame
-            let maxSuggestionRowHeight = (row as? _SuggestionRow<SuggestionTableCell>)?.maxSuggestionRows ?? 5
-            tableView?.frame = CGRect(x: 0, y: frame.origin.y + frame.height, width: contentView.frame.width, height: 44 * CGFloat(maxSuggestionRowHeight))
+            tableView?.frame = CGRect(x: 0, y: frame.origin.y + frame.height, width: contentView.frame.width, height: controller.view.frame.height - (frame.origin.y + frame.height))
+            if let parentContentInset = controller.tableView?.contentInset {
+                tableView?.contentInset = parentContentInset
+            }
             tableView?.isHidden = false
         }
     }
