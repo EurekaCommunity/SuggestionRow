@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D2C4CCC226F5594008EE858 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA9C14621554F8500912B14 /* Eureka.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		2D2C4CCD226F55B7008EE858 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA9C14621554F8500912B14 /* Eureka.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6A9D202F2BA6E4BFA39C5B05 /* Pods_SuggestionRowUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB6675C27F04324EC0932A6 /* Pods_SuggestionRowUITests.framework */; };
 		79E4A8291FD82BF50023D6B6 /* SuggestionRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 79E4A8271FD82BF50023D6B6 /* SuggestionRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79E4A8391FD82C320023D6B6 /* SuggestionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA81DD741D64F824002F17F9 /* SuggestionRow.swift */; };
@@ -16,9 +18,7 @@
 		79E4A83D1FD82C320023D6B6 /* SuggestionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA81DD7C1D64FB78002F17F9 /* SuggestionTableCell.swift */; };
 		79E4A83E1FD82C320023D6B6 /* SuggestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA81DD7D1D64FB78002F17F9 /* SuggestionTableViewCell.swift */; };
 		79E4A83F1FD82C320023D6B6 /* String+SuggestionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA74BC81D831E2100571A0C /* String+SuggestionValue.swift */; };
-		8F36D0B2215567AD00A0F5EC /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA9C14621554F8500912B14 /* Eureka.framework */; };
 		8FA74BC91D831E2100571A0C /* String+SuggestionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA74BC81D831E2100571A0C /* String+SuggestionValue.swift */; };
-		8FA9C14E2155614600912B14 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA9C14621554F8500912B14 /* Eureka.framework */; };
 		8FA9C14F2155614600912B14 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA9C14621554F8500912B14 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA81DD461D64F706002F17F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA81DD451D64F706002F17F9 /* AppDelegate.swift */; };
 		AA81DD481D64F707002F17F9 /* SuggestionExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA81DD471D64F707002F17F9 /* SuggestionExampleViewController.swift */; };
@@ -109,8 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F36D0B2215567AD00A0F5EC /* Eureka.framework in Frameworks */,
 				B19BD44BA8B480C01BFA14B0 /* Pods_SuggestionRow.framework in Frameworks */,
+				2D2C4CCC226F5594008EE858 /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FA9C14E2155614600912B14 /* Eureka.framework in Frameworks */,
+				2D2C4CCD226F55B7008EE858 /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
