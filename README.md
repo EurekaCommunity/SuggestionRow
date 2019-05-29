@@ -144,9 +144,9 @@ This is very similar to the example mentioned above for `SuggestionTableRow`.
 * Eureka
 
 ## Requirements
-* iOS 8.0+
-* Xcode 8.3+
-* Swift 3
+* iOS 9.3+
+* Xcode 10.2+
+* Swift 4.2
 
 ## Getting involved
 * If you **want to contribute** please feel free to **submit pull requests**.
