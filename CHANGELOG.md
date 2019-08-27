@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to SuggestionRow will be documented in this file.
 
+## [3.0.0](https://github.com/EurekaCommunity/SuggestionRow/releases/tag/3.0.0)
+
+* Support for Eureka 5.0 and Swift 5.0
+
 ## [2.2.0](https://github.com/EurekaCommunity/SuggestionRow/releases/tag/2.2.0)
 
 * Support for Swift 4.2 and Xcode 10
