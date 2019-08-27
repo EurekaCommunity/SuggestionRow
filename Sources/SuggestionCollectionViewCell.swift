@@ -37,13 +37,20 @@ open class SuggestionCollectionViewCell<T: SuggestionValue>: UICollectionViewCel
         label.numberOfLines = 1
         label.minimumScaleFactor = 0
         label.adjustsFontSizeToFitWidth = true
-        label.textColor = .white
-        label.backgroundColor = .blue
+        if #available(iOS 13.0, *) {
+            label.textColor = .systemBackground
+            contentView.backgroundColor = .systemBackground
+            label.backgroundColor = .systemBlue
+        } else {
+            label.textColor = .white
+            contentView.backgroundColor = .white
+            label.backgroundColor = .blue
+        }
+        
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
         
         contentView.addSubview(label)
-        contentView.backgroundColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[label]|", options: [], metrics: nil, views: ["label": label]))
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[label]|", options: [], metrics: nil, views: ["label": label]))

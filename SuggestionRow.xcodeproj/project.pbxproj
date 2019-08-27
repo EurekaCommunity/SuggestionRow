@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2D2C4CCC226F5594008EE858 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA9C14621554F8500912B14 /* Eureka.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		2D2C4CCD226F55B7008EE858 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA9C14621554F8500912B14 /* Eureka.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		2D2F6487231585CD00D227EC /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D2F6486231585CD00D227EC /* Eureka.framework */; };
+		2D2F6488231585CD00D227EC /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D2F6486231585CD00D227EC /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6A9D202F2BA6E4BFA39C5B05 /* Pods_SuggestionRowUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB6675C27F04324EC0932A6 /* Pods_SuggestionRowUITests.framework */; };
 		79E4A8291FD82BF50023D6B6 /* SuggestionRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 79E4A8271FD82BF50023D6B6 /* SuggestionRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79E4A8391FD82C320023D6B6 /* SuggestionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA81DD741D64F824002F17F9 /* SuggestionRow.swift */; };
@@ -62,6 +64,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				8FA9C14F2155614600912B14 /* Eureka.framework in Embed Frameworks */,
+				2D2F6488231585CD00D227EC /* Eureka.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +74,7 @@
 /* Begin PBXFileReference section */
 		21E0F93C20EB5BEFC749CB9F /* Pods-SuggestionRowUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuggestionRowUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuggestionRowUITests/Pods-SuggestionRowUITests.release.xcconfig"; sourceTree = "<group>"; };
 		25FDE1B01589CAB993067AF8 /* Pods-SuggestionRowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuggestionRowTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuggestionRowTests/Pods-SuggestionRowTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2D2F6486231585CD00D227EC /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E4A8251FD82BF50023D6B6 /* SuggestionRow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SuggestionRow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E4A8271FD82BF50023D6B6 /* SuggestionRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuggestionRow.h; sourceTree = "<group>"; };
 		79E4A8281FD82BF50023D6B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D2C4CCD226F55B7008EE858 /* Eureka.framework in Frameworks */,
+				2D2F6487231585CD00D227EC /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +243,7 @@
 		B49C487EB6DD1EF9AA014DDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D2F6486231585CD00D227EC /* Eureka.framework */,
 				E382FC4170AC6A8094CA8BB2 /* Pods_SuggestionRow.framework */,
 				92D8B188ED3E2B0E4F9C4557 /* Pods_SuggestionRowTests.framework */,
 				9AB6675C27F04324EC0932A6 /* Pods_SuggestionRowUITests.framework */,

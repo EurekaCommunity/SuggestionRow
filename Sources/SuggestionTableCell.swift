@@ -31,7 +31,11 @@ open class SuggestionTableCell<T, TableViewCell: UITableViewCell>: SuggestionCel
         tableView?.isHidden = true
         tableView?.delegate = self
         tableView?.dataSource = self
-        tableView?.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+            tableView?.backgroundColor = UIColor.systemBackground
+        } else {
+            tableView?.backgroundColor = UIColor.white
+        }
         tableView?.register(TableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
