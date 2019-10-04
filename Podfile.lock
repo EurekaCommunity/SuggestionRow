@@ -1,22 +1,16 @@
 PODS:
-  - Eureka (5.0.0)
+  - Eureka (5.1.0)
 
 DEPENDENCIES:
-  - Eureka (from `https://github.com/kamerc/Eureka.git`, branch `ios-13`)
+  - Eureka (~> 5.1.0)
 
-EXTERNAL SOURCES:
-  Eureka:
-    :branch: ios-13
-    :git: https://github.com/kamerc/Eureka.git
-
-CHECKOUT OPTIONS:
-  Eureka:
-    :commit: cc99f9cf1cc8330482f256b54f778cd8742948e9
-    :git: https://github.com/kamerc/Eureka.git
+SPEC REPOS:
+  trunk:
+    - Eureka
 
 SPEC CHECKSUMS:
-  Eureka: e7b9a83e08867f8336176247bdc4c199b1f68e5e
+  Eureka: 18a5076dcf0c41f9cd9748aa1c42f4d11434bdae
 
-PODFILE CHECKSUM: 9ca3e58ad3094a8758ff65b9ec60756ae34a8970
+PODFILE CHECKSUM: 02d4251c7f7710ee2ed6c4b8f8d6deda414d8080
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.1
