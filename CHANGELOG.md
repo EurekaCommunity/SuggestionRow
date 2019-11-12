@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to SuggestionRow will be documented in this file.
 
+## [3.1.0](https://github.com/EurekaCommunity/SuggestionRow/releases/tag/3.1.0)
+
+* Support for Eureka 5.1, iOS 13 and Dark mode
+
 ## [3.0.0](https://github.com/EurekaCommunity/SuggestionRow/releases/tag/3.0.0)
 
 * Support for Eureka 5.0 and Swift 5.0

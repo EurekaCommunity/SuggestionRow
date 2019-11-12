@@ -146,7 +146,7 @@ This is very similar to the example mentioned above for `SuggestionTableRow`.
 ## Requirements
 * iOS 9.3+
 * Xcode 10.2+
-* Swift 4.2
+* Swift 5.0
 
 ## Getting involved
 * If you **want to contribute** please feel free to **submit pull requests**.

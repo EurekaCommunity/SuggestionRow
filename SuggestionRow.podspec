@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SuggestionRow"
-  s.version          = "3.0.0"
+  s.version          = "3.1.0"
   s.summary          = "Eureka row that displays completion suggestions either below the row in a table view or in the input accessory view above the keyboard."
   s.homepage         = "https://github.com/EurekaCommunity/SuggestionRow"
   s.license          = { type: 'MIT', file: 'LICENSE' }
@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.3'
   s.requires_arc = true
   s.ios.source_files = 'Sources/**/*.{swift}'
-  s.dependency 'Eureka', '~> 5.0'
+  s.dependency 'Eureka', '~> 5.1'
   s.swift_version = "5.0"
 end
