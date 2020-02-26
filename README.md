@@ -4,14 +4,21 @@
 </p>
 
 ## Contents
-* [Introduction](#introduction)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Running the examples](#running-the-examples)
-* [Customization](#customization)
-* [Dependencies](#dependencies)
-* [Requirements](#requirements)
-* [Getting involved](#getting-involved)
+- [Contents](#contents)
+- [Introduction](#introduction)
+- [Installation](#installation)
+    - [CocoaPods](#cocoapods)
+    - [Swift Package Manager](#swift-package-manager)
+- [Usage](#usage)
+  - [Conform to `SuggestionValue` protocol](#conform-to-suggestionvalue-protocol)
+  - [Instantiate the row](#instantiate-the-row)
+- [Running the examples](#running-the-examples)
+- [Customization](#customization)
+  - [SuggestionTableRow<T>](#suggestiontablerowt)
+  - [SuggestionAccessoryRow<T>](#suggestionaccessoryrowt)
+- [Dependencies](#dependencies)
+- [Requirements](#requirements)
+- [Getting involved](#getting-involved)
 
 ## Introduction
 `SuggestionRow` is a row extension for the [Eureka](https://github.com/xmartlabs/Eureka) iOS form builder that provides completion suggestions as the user is typing. There are two rows that can be instantiated:
@@ -39,6 +46,16 @@ pod 'SuggestionRow'
 ```
 
 Then run `pod install`.
+
+#### Swift Package Manager
+
+[Swift Package Manager](https://swift.org/package-manager/) is a tool for managing the distribution of Swift code.
+
+After you set up your `Package.swift` manifest file, you can add SuggestionRow as a dependency by adding it to the dependencies value of your `Package.swift`.
+
+dependencies: [
+    .package(url: "https://github.com/EurekaCommunity/SuggestionRow.git", from: "3.2.0")
+]
 
 ## Usage
 ### Conform to `SuggestionValue` protocol
@@ -128,7 +145,7 @@ Here `MySuggestionTableCell` is the cell of the row itself and `MySuggestionTabl
 
 Look at the source code of the default cells for inspiration.
 
-### `SuggestionAccessoryRow<T>`
+### SuggestionAccessoryRow<T>
 `SuggestionAccessoryRow `uses a generic `SuggestionCollectionCell` cell whose generic parameter is the `UICollectionViewCell` class used in the `inputAccessoryView`.
 
 * If you want to make minor visual changes to the suggestion cells, use the `customizeCollectionViewCell` callback.
@@ -145,7 +162,7 @@ This is very similar to the example mentioned above for `SuggestionTableRow`.
 
 ## Requirements
 * iOS 9.3+
-* Xcode 10.2+
+* Xcode 11+
 * Swift 5.0
 
 ## Getting involved
