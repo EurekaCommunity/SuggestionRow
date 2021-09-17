@@ -3,7 +3,7 @@ platform :ios, '9.3'
 target 'SuggestionRow' do
   use_frameworks!
 
-  pod 'Eureka', '~> 5.1.0'
+  pod 'Eureka', '~> 5.3.3'
 
   target 'SuggestionRowTests' do
     inherit! :search_paths
