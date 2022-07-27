@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to SuggestionRow will be documented in this file.
 
+## [3.3.0](https://github.com/EurekaCommunity/SuggestionRow/releases/tag/3.3.0)
+
+* Update Eureka version to 5.3.6
+
 ## [3.2.0](https://github.com/EurekaCommunity/SuggestionRow/releases/tag/3.2.0)
 
 * Support for Swift Package Manager

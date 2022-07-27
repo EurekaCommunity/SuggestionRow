@@ -54,7 +54,7 @@ Then run `pod install`.
 After you set up your `Package.swift` manifest file, you can add SuggestionRow as a dependency by adding it to the dependencies value of your `Package.swift`.
 
 dependencies: [
-    .package(url: "https://github.com/EurekaCommunity/SuggestionRow.git", from: "3.2.0")
+    .package(url: "https://github.com/EurekaCommunity/SuggestionRow.git", from: "3.3.0")
 ]
 
 ## Usage
@@ -98,7 +98,7 @@ In your form, add a row of type `SuggestionAccessoryRow<Scientist>` or `Suggesti
 
     let users: [Scientist] = [Scientist(id: 1, firstName: "Albert", lastName: "Einstein"),
                               Scientist(id: 2, firstName: "Isaac", lastName: "Newton")]
-    ...                          
+    ...
     form +++ Section("Table suggestions")
         <<< SuggestionTableRow<Scientist>() {
             $0.filterFunction = { [unowned self] text in
@@ -154,7 +154,7 @@ Look at the source code of the default cells for inspiration.
 
 * If you want to change something about the **collectionView** (e.g. its height, backgroundColor) then you can also do that in the `cellSetup` method.
 
-* If you want to **change the collection view cell of the inputAccessoryView** drastically, create your own row (`MySuggestionAccessoryRow`) with your own cell class which conforms to `EurekaSuggestionCollectionViewCell`. 
+* If you want to **change the collection view cell of the inputAccessoryView** drastically, create your own row (`MySuggestionAccessoryRow`) with your own cell class which conforms to `EurekaSuggestionCollectionViewCell`.
 This is very similar to the example mentioned above for `SuggestionTableRow`.
 
 ## Dependencies
